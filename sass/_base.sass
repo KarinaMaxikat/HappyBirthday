@@ -1,0 +1,50 @@
+@font-face
+    font-family: 'ProximaNovaBold'
+    src: url('../fonts/proximanova-bold.woff2') format('woff2'), url('../fonts/proximanova-bold.woff') format('woff')
+
+$black: #140e0a
+$accent: #c7b299
+$textGradient: linear-gradient(transparent, rgba(#000, .2))
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+@mixin position($top: null, $left: null, $bottom: null, $right: null)
+  position: absolute
+  top: $top
+  left: $left
+  bottom: $bottom
+  right: $right
+
+*, *::before, *::after
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+a, a:hover
+  text-decoration: none
+  color: inherit
+
+ul, li
+  list-style-type: none
+
+.grid
+  display: grid
+
+.container
+  display: grid
+  align-items: center
+  justify-items: center
+  height: 100vh
+
+.responsive-img
+  background-size: cover
+  background-position: top center
+  width: 100%

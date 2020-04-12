@@ -1,0 +1,129 @@
+@import "base"
+
+body
+  font-family: "ProximaNovaBold"
+  position: relative
+  width: 100%
+  font-size: 60px
+
+section
+  position: sticky
+  top: 0
+  height: 100vh
+
+.intro
+  background-color: #000
+  font-size: 100%
+  text-transform: uppercase
+  color: $accent
+
+@for $i from 1 through 11
+  .wavy span:nth-of-type(#{$i})
+    --i: #{$i}
+
+.wavy
+  -webkit-box-reflect: below -12px $textGradient
+  span
+    animation: animate 1.2s ease-in-out infinite
+    -webkit-animation: animate 1.2s ease-in-out infinite
+    -moz-animation: animate 1.2s ease-in-out infinite
+    -o-animation: animate 1.2s ease-in-out infinite
+    -webkit-animation-delay: calc(0.07s * var(--i))
+    -moz-animation-delay: calc(0.07s * var(--i))
+    -o-animation-delay: calc(0.07s * var(--i))
+    animation-delay: calc(0.07s * var(--i))
+
+.photo-gallery
+  background-color: #fff
+  font-size: 100%
+  .container
+    padding: .5em
+  &-item
+    background-image: url('../img/bg.png')
+    color: $accent
+    grid-template-columns: repeat(5, 1fr)
+    align-items: center
+    justify-items: center
+    width: 80%
+    margin: .5em
+    div
+      height: 35vh
+    &:nth-of-type(1)
+      align-self: flex-end
+      div
+        grid-column: 1 / 3
+      p
+        grid-column: 3 / 6
+    &:nth-of-type(2)
+      align-self: flex-start
+      div
+        grid-column: 4 / 6
+        order: 2
+      p
+        grid-column: 1 / 4
+
+    border: .2em solid $black
+    border-radius: 7px
+
+.video-gallery
+  background: #fff
+  .banner
+    position: absolute
+    width: 100%
+    height: 100vh
+    overflow: hidden
+    align-items: center
+    justify-items: center
+    text-align: center
+    video
+      @include position(0, 0)
+      width: 100%
+      height: 100%
+      object-fit: cover
+    h2
+      @include position(0, 0)
+      width: 100%
+      height: 100%
+      line-height: 100vh
+      background: #fff
+      font-size: 10vw
+      mix-blend-mode: screen
+    .container
+      @include position(0, 50%)
+      transform: translateX(-50%)
+      -webkit-transform: translateX(-50%)
+      -ms-transform: translateX(-50%)
+      height: 100%
+      line-height: 100vh
+      h3
+        font-size: 100%
+        color: #fff
+        text-shadow: 10px 10px 10px rgba(#000, .5)
+
+.scratch-img
+  position: relative
+  width: 100%
+  height: 100%
+
+.scratch
+  height: calc(100vw/16*9)
+  -moz-user-select: none
+  -khtml-user-select: none
+  user-select: none
+
+
++keyframes(animate)
+  0%
+    transform: translateY(0px)
+    -webkit-transform: translateY(0px)
+    -ms-transform: translateY(0px)
+  20%
+    transform: translateY(-20px)
+    -webkit-transform: translateY(-20px)
+    -ms-transform: translateY(-20px)
+  40%, 100%
+    transform: translateY(0px)
+    -webkit-transform: translateY(0px)
+    -ms-transform: translateY(0px)
+
+@import "media"
