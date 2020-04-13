@@ -1,0 +1,6 @@
+$ cat .gitignore
+*.txt
+*.md
+*.config
+ignore/
+.ignore/
